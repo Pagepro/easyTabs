@@ -53,6 +53,20 @@ default: 'tab-active'
 options: string
 ```
 
+**eventName**
+Specify what event should trigger to change tab.
+```
+default: 'click'
+options: string
+```
+
+**eventNameSuffix**
+Specify how event should be named ex.: click.easyTabs (easyTabs is the eventNameSuffix)
+```
+default: 'easyTabs'
+options: string
+```
+
 **afterChange**
 Callback after tab is changed.
 ```
@@ -93,6 +107,33 @@ $(document).ready(function(){
     afterChange: function () {
      alert('Tab was changed');
     }
+  });
+});
+```
+
+Destroy
+
+```javascript
+$(document).ready(function(){
+  $('.tabs-playlists').easyTabs({
+    nav: '> header',
+    content: '> div'
+  });
+  $('.tabs-playlists').data('easyTabs').destroy();
+});
+```
+
+Reinit
+
+```javascript
+$(document).ready(function(){
+  $('.tabs-playlists').easyTabs({
+    nav: '> header',
+    content: '> div'
+  });
+  $('.tabs-playlists').data('easyTabs').reinit({
+    nav: '> div',
+    content: '.new-content'
   });
 });
 ```
